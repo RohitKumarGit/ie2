@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IEEE Inaugartion</title>
+    <link rel="stylesheet" href="/bulma.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="columns" style="height: 100vh" id="app">
+      <div class="column is-7 is-relative">
+        <div>hi</div>
+        <video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
+          <source src="/aseets/videoplayback.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="column is-4 is-flex is-justify-content-center">
+        <div>
+          <div class="p-4">
+            <div class="style-1 is-size-1">Inauguration Ceremony</div>
+            <div class="is-size-3 has-text-weight-bold is-uppercase">
+              R10 IRC sponsored workshop, Industry-Academia
+            </div>
+            <div class="sub">
+              Collaboration With Focus on Research and Innovation
+            </div>
+          </div>
+          <input
+            v-model="txt"
+            type="text"
+            class="input mt-5"
+            placeholder="Enter passcode"
+          />
+          <button class="button is-primary imaug ts" v-on:click="clk">
+            Inaugrate
+          </button>
+          <div class="fl">
+            <div>
+              <img src="/aseets/delhi.jpg" alt="" srcset="" />
+            </div>
+            <div>
+              <img src="/aseets/ieee_ds_black.png" alt="" srcset="" />
+            </div>
+            <div>
+              <img src="/aseets/kolkata.png" alt="" />
+            </div>
+            <div>
+              <img src="/aseets/R10-Logo.png" alt="" srcset="" />
+            </div>
+            <div>
+              <img src="/aseets/comsoc delhi (1).jpg" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"
+      integrity="sha512-lTLt+W7MrmDfKam+r3D2LURu0F47a3QaW5nF0c6Hl0JDZ57ruei+ovbg7BrZ+0bjVJ5YgzsAWE+RreERbpPE1g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello Vue!",
+          txt: "",
+        },
+        methods: {
+          async clk() {
+            if (this.txt === "0213") {
+              await axios.post("/msg");
+            } else {
+              alert("wrong passcode");
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
